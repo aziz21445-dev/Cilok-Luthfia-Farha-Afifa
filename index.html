@@ -1,1 +1,114 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cilok Luthfia Farha Afifa</title>
+  <style>
+    body { font-family: 'Segoe UI', sans-serif; margin:0; background:#fff8f0; color:#333; }
+    header { background:#d90429; color:white; text-align:center; padding:65px 15px 30px 15px; position:relative; }
+    .digital-clock { 
+      position:absolute; 
+      top:10px; 
+      left:15px; 
+      background:rgba(0,0,0,0.4); 
+      padding:6px 12px; 
+      border-radius:8px; 
+      font-size:11px; 
+      text-align:left;
+      line-height:1.4;
+      color:#fff;
+    }
+    .running-text { color:#fff; font-size:20px; font-weight:bold; margin:0 0 15px 0; }
+    .nama { font-size:18px; margin:15px 0 10px 0; font-weight:600; color:#fff; }
+    .jam { background:#ffb703; color:#000; display:inline-block; padding:6px 15px; border-radius:20px; font-weight:bold; margin-top:10px; }
+    .container { padding:20px; max-width:500px; margin:auto; }
+    .card { background:white; border-radius:15px; padding:20px; margin:20px 0; box-shadow:0 3px 10px rgba(0,0,0,0.1); }
+    .card img { width:100%; border-radius:10px; margin-bottom:15px; }
+    .harga { color:#d90429; font-weight:bold; font-size:22px; margin:10px 0; }
+    .btn-wa { display:block; background:#25D366; color:white; text-align:center; padding:15px; border-radius:10px; text-decoration:none; font-weight:bold; font-size:18px; margin-top:15px; }
+    .info { background:#fff3cd; padding:15px; border-radius:10px; border-left:5px solid #ffb703; margin:20px 0; }
+    table { width:100%; border-collapse:collapse; margin:15px 0; }
+    th, td { padding:12px; text-align:left; border-bottom:1px solid #eee; }
+    th { background:#d90429; color:white; }
+    .menu-title { font-size:20px; font-weight:bold; margin:10px 0; color:#d90429; }
+    footer { text-align:center; padding:30px 15px; font-size:14px; color:#666; background:#fff; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="digital-clock" id="jamDigital"></div>
+    <marquee class="running-text">SELAMAT DATANG DI WARUNG CILOK KAMI 🌶️</marquee>
+    <p class="nama">LUTHFIA FARHA AFIFA</p>
+    <div class="jam">BUKA 09:30 - 16:00</div>
+  </header>
 
+  <div class="container">
+    <div class="card">
+      <img src="cilok.jpg" alt="Cilok Luthfia Farha Afifa">
+      <h2>Cilok Bumbu Kacang Spesial</h2>
+      <p>Cilok kenyal homemade pake bumbu kacang kental, kecap manis, sambel pedas, dan taburan bawang goreng.</p>
+      
+      <p class="menu-title">📋 DAFTAR MENU & HARGA</p>
+      <table>
+        <tr>
+          <th>Menu</th>
+          <th>Harga</th>
+        </tr>
+        <tr>
+          <td>Cilok Satuan</td>
+          <td><strong>Rp500</strong> / biji</td>
+        </tr>
+        <tr>
+          <td>Cilok Porsi Isi 10</td>
+          <td><strong>Rp5.000</strong></td>
+        </tr>
+        <tr>
+          <td>Cilok Jumbo Isi 20</td>
+          <td><strong>Rp10.000</strong></td>
+        </tr>
+        <tr>
+          <td>Tambah Telur</td>
+          <td><strong>+Rp2.000</strong></td>
+        </tr>
+      </table>
+
+      <a href="https://wa.me/6282129965832?text=Kak%20Luthfia%20mau%20pesan%20cilok%20ya" class="btn-wa">PESAN VIA WHATSAPP</a>
+    </div>
+
+    <div class="info">
+      <strong>🚚 SIAP ANTAR WILAYAH:</strong><br>
+      Desa Heubeulsuk dan sekitarnya<br><br>
+      <strong>📞 TERIMA PESANAN:</strong><br>
+      0821-2996-5832
+    </div>
+  </div>
+
+  <footer>
+    <strong>Terimakasih sudah order 🙏</strong><br>
+    Cilok Online Luthfia Farha Afifa<br>
+    DukuhGambar-Heubeulisuk, Kab. MAJALENGKA 
+  </footer>
+
+<script>
+function updateJam() {
+  const hari = ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'];
+  const bulan = ['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'];
+  
+  const now = new Date();
+  const jam = String(now.getHours()).padStart(2,'0');
+  const menit = String(now.getMinutes()).padStart(2,'0');
+  const detik = String(now.getSeconds()).padStart(2,'0');
+  const namaHari = hari[now.getDay()];
+  const tanggal = now.getDate();
+  const namaBulan = bulan[now.getMonth()];
+  const tahun = now.getFullYear();
+  
+  document.getElementById('jamDigital').innerHTML = `${namaHari}, ${tanggal} ${namaBulan} ${tahun}<br>${jam}:${menit}:${detik}`;
+}
+setInterval(updateJam, 1000);
+updateJam();
+</script>
+
+</body>
+  </html>
